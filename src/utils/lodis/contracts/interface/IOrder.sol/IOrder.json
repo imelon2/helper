@@ -1,0 +1,52 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "IOrder",
+  "sourceName": "contracts/interface/IOrder.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        }
+      ],
+      "name": "getRecord",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "completeOrder_shipping",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "completeOrder_carrying",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "expiredOrder",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "failOrder",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct IOrder.TrackContributions",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}
