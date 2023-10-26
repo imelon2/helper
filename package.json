@@ -26,7 +26,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://imelon2.github.io/helper/",
+  "homepage": "https://imelon2.github.io/helper",
   "eslintConfig": {
     "extends": [
       "react-app",
