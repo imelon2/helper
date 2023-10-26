@@ -10,7 +10,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/order/:context' element={<OrderHandle />} />
-        <Route path='/search/' element={<Search />} />
+        <Route path='/search' element={<Search />} />
       </Routes>
     </div>
   );
