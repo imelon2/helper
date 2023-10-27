@@ -1,0 +1,44 @@
+.headerText {
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+.titleText {
+    font-weight: 600;
+    font-size: x-large;
+}
+
+.text16 {
+    font-size: 16px;
+}
+
+.text12 {
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.text10 {
+    font-weight: 700;
+    font-size: 10px;
+}
+
+.text8 {
+    font-weight: 700;
+    font-size: 8px;
+}
+
+li {
+    padding-inline-start: 10px;
+}
+
+input {
+    margin-inline-start: -1px;
+}
+
+.icon {
+    /* height: 100%; */
+    position: relative;
+    bottom: 10px;
+    display: inline-block;
+    font-size: 14px;
+}

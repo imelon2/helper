@@ -1,0 +1,61 @@
+    .order {
+        position: relative;
+    }
+
+    .warpper {
+        margin-left: 59px;
+        margin-top: 45px;
+    }
+
+    .Provider {
+        margin-top: 10px;
+        padding-inline-start: 5px;
+        margin-bottom: 10px;
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    .orderTitle {
+        color: #000000;
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    .functionName {
+        color: #9b9b9b;
+        font-family: Inter, sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 24px;
+        padding-inline-start: 10px;
+    }
+
+    .inputWrapper {
+        margin-left: 20px;
+    }
+
+    .address {
+        color:#9b9b9b
+    }
+
+    .OrderId.button {
+        margin-inline-start: 3px;
+    }
+
+    .sendTx.button {
+        margin-inline-start: 3px;
+    }
+
+    .jsonForm {
+        margin-inline-start: 15px;
+        padding: 10px;
+    }
+
+    .OrderId.jsonForm {
+        margin-inline-start: 15px;
+        margin-top: 25px;
+        background-color: #E0DCDB;
+        overflow: overlay;
+        height: 260px;
+        width: 800px;
+    } 

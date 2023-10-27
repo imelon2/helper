@@ -1,16 +1,16 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Home from './page/Home';
-import OrderHandle from './page/OrderHandle';
-import Search from './page/Search';
+import Home from './page/Home/Home';
+import OrderHandlePage from './page/Order/OrderHandlePage';
+import Header from './components/Header/Header';
 
 function App() {
   return (
     <div className="App">
+      <Header />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/order/:context' element={<OrderHandle />} />
-        <Route path='/search' element={<Search />} />
+        <Route path='/order/:context' element={<OrderHandlePage />} />
       </Routes>
     </div>
   );

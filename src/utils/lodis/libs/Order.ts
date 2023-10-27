@@ -39,7 +39,7 @@ export class Order {
     }
   }
 
-  async getOrder(id: number): Promise<any> {
+  async getOrder(id: number|string): Promise<any> {
     try {
       const order = await this.contract.getOrder(id);
       return order;
