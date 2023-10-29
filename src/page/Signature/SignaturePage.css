@@ -1,0 +1,20 @@
+.wrapper {
+    margin-top: 45px;
+}
+
+.monitor {
+    margin-inline-start: 15px;
+    margin-top: 25px;
+    background-color: #E0DCDB;
+    overflow: overlay;
+    height: 260px;
+    width: 700px;
+}
+
+.jsonForm {
+    /* width: 700px; */
+}
+
+.button {
+    margin-inline-start: 3px;
+}

@@ -41,7 +41,7 @@ export class TxForwarder {
   private interface: any;
   public CA: string;
 
-  constructor(CA: string, provider: EthersAlchemyProvider | JsonRpcProvider) {
+  constructor(CA: string, provider: JsonRpcProvider) {
     this.CA = CA;
     this.provider = provider;
     this.abi = TxForwarderSol.abi;
@@ -63,7 +63,7 @@ export class TxForwarder {
       this.CA
     );
     const types = forwardRequest_types();
-    return signer._signTypedData(domain, types, req);
+    return await signer._signTypedData(domain, types, req);
   }
 
   async execute(

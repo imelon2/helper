@@ -2,7 +2,7 @@ import { ethers } from "ethers";
 import { convertDate } from "./time";
 
 type IOrderData = {
-    orderId:string;
+    orderId:number;
     shipper:string;
     carrier:string;
     departure:string;

@@ -2,11 +2,6 @@
         position: relative;
     }
 
-    .warpper {
-        margin-left: 59px;
-        margin-top: 45px;
-    }
-
     .Provider {
         margin-top: 10px;
         padding-inline-start: 5px;
@@ -28,10 +23,6 @@
         font-weight: 700;
         line-height: 24px;
         padding-inline-start: 10px;
-    }
-
-    .inputWrapper {
-        margin-left: 20px;
     }
 
     .address {

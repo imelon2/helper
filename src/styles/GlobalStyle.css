@@ -1,3 +1,8 @@
+.container {
+    margin-left: 59px;
+    margin-top: 45px;
+}
+
 .headerText {
     font-weight: bold;
     font-size: xx-large;
@@ -6,6 +11,11 @@
 .titleText {
     font-weight: 600;
     font-size: x-large;
+}
+
+.text20 {
+    font-size: 20px;
+    font-weight: 600;
 }
 
 .text16 {
@@ -41,4 +51,9 @@ input {
     bottom: 10px;
     display: inline-block;
     font-size: 14px;
+}
+
+.inputWrapper {
+    margin-top: 6px;
+    margin-left: 20px;
 }

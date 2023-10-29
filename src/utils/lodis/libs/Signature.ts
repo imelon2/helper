@@ -1,11 +1,12 @@
-import { metaTx } from "./TxForwarder";
+import { forwardRequest_domain } from "../../sign/dataTypes";
+import { TxForwarder, metaTx } from "./TxForwarder";
 
-export const forwardRequest = async (
+export const forwardRequest = (
     from: string,
     to: string,
     nonce:string,
     inputData: string
-  ) : Promise<metaTx> => {
+  ) : metaTx => {
     try {
       return {
         from: from,

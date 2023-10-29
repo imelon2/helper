@@ -2,17 +2,21 @@ import { useParams } from "react-router-dom"
 import React, { useCallback, useEffect, useState } from 'react'
 import '../../styles/GlobalStyle.css'
 import "./OrderHandlePage.css"
+import ContextHeader from "../../components/ContextHeader/ContextHeader"
 import { initializeProvider, context, initializeCA } from "../../utils/lodis/config"
 import Loading from "../../components/Loading/Loading"
 import { checkContextType, checkPrivateKeyLength } from "../../utils/check"
-import { Order } from "../../utils/lodis/libs/Order"
 import { Wallet, ethers } from "ethers"
 import JSONPretty from 'react-json-pretty';
 import { _praseOrderdata } from "../../utils/prase"
+import { SearchOrderById } from "../../modules/OrderModules"
+import { Order } from "../../utils/lodis/libs/Order"
+
 
 function OrderHandlePage() {
     const { context } = useParams()
     const [contextTitle, setContextTitle] = useState('')
+    const [Provider, setProvider] = useState({ L1: "", L2: "" })
     const [OrderId, setOrderId] = useState('')
     const [UserPrivateKey, setUserPrivateKey] = useState('')
     const [UserAddress, setUserAddress] = useState('-')
@@ -20,7 +24,6 @@ function OrderHandlePage() {
     const [AdminPrivateKey, setAdminPrivateKey] = useState('')
     const [AdminAddress, setAdminAddress] = useState('-')
     const [AdminWallet, setAdminWallet] = useState<Wallet>()
-    const [Provider, setProvider] = useState({ L1: "", L2: "" })
     const [isLoading, setIsLoading] = useState({orderId:false,sendTx:false})
     const [order, setOrder] = useState<Order>()
     const [showJSON,setShowJSON] = useState<any>()
@@ -43,8 +46,7 @@ function OrderHandlePage() {
             })
             if(!OrderId) return;
             if(!order) return;
-            const OrderData = await order.getOrder(OrderId)
-            setShowJSON(_praseOrderdata(OrderData))
+            setShowJSON(SearchOrderById(Number(OrderId),order))
         } catch (error) {
             
         } finally {
@@ -102,18 +104,9 @@ function OrderHandlePage() {
     }
 
     return (
-        <div className='order'>
-            <div className='warpper'>
-                <div className="titleText">📝 Lodis 환경 정보 : {contextTitle}</div>
-                <div className='Provider'>Provider</div>
-                <li className='L1'>
-                    L1 : {Provider.L1}
-                </li>
-                <li className='L2'>
-                    L2 : {Provider.L2}
-                </li>
-            </div>
-            <div className="warpper">
+        <div className='container'>
+            <ContextHeader contextTitle={contextTitle} Provider={Provider}/>
+            <div className="wrapper">
                 <div className='orderTitle'><div className="icon">📌</div>주문 완료</div>
                 <div className='functionName'>(completeOrderWithOutSig)</div>
                 <div style={{display:"inline-flex"}}>
