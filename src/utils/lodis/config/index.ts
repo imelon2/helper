@@ -194,20 +194,20 @@ export function initializeProvider(context: context) {
 
     case "beta":
       return {
-        L1: "https://eth-mainnet.g.alchemy.com/v2/LTGBwhGvw3u0gdwSQ4ZGHPY_hnTa4dVI",
-        L2: "https://polygon-mainnet.g.alchemy.com/v2/e-q38pX0CVSX8cL92lxKy-M62lPjIbzs",
+        L1: "https://ethereum-mainnet-rpc.allthatnode.com/uuPryfzIVwN7gRDw9v5Zzw6jdDHPw11p",
+        L2: "https://polygon-mainnet-rpc.allthatnode.com:8545/uuPryfzIVwN7gRDw9v5Zzw6jdDHPw11p",
       };
 
     case "test":
       return {
-        L1: "https://eth-goerli.g.alchemy.com/v2/f5z6qLCEElGTcFaCKZVwk_L_JC83Wwr3",
-        L2: "https://polygon-mumbai.g.alchemy.com/v2/8LB2uMnu87tTyUGsbL2XF9q62DagXXlY",
+        L1: "https://ethereum-goerli-rpc.allthatnode.com/uuPryfzIVwN7gRDw9v5Zzw6jdDHPw11p",
+        L2: "https://polygon-testnet-rpc.allthatnode.com:8545/uuPryfzIVwN7gRDw9v5Zzw6jdDHPw11p",
       };
 
     case "stag":
       return {
-        L1: "https://eth-goerli.g.alchemy.com/v2/f5z6qLCEElGTcFaCKZVwk_L_JC83Wwr3",
-        L2: "https://polygon-mumbai.g.alchemy.com/v2/8LB2uMnu87tTyUGsbL2XF9q62DagXXlY",
+        L1: "https://ethereum-goerli-rpc.allthatnode.com/uuPryfzIVwN7gRDw9v5Zzw6jdDHPw11p",
+        L2: "https://polygon-testnet-rpc.allthatnode.com:8545/uuPryfzIVwN7gRDw9v5Zzw6jdDHPw11p"
       };
 
     case "release":

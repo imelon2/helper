@@ -1,10 +1,10 @@
 import Loading from "components/Loading/Loading";
 import { Wallet, ethers } from "ethers";
-import { SearchOrderById } from "modules/OrderModules";
+import { SearchOrderById, Sign2770ExpiredOrder } from "modules/OrderModules";
 import { useCallback, useState } from "react";
 import JSONPretty from "react-json-pretty";
 import { checkPrivateKeyLength } from "utils";
-import { lodisSelector } from "utils/lodis/config";
+import { context, lodisSelector } from "utils/lodis/config";
 import { Order } from "utils/lodis/libs/Order";
 import { forwardRequest } from "utils/lodis/libs/Signature";
 import { TxForwarder } from "utils/lodis/libs/TxForwarder";
@@ -12,10 +12,11 @@ import { TxForwarder } from "utils/lodis/libs/TxForwarder";
 type IProps = {
     F_TxForwarder: TxForwarder;
     F_Order: Order;
-    ca:any
+    ca:any;
+    contextTitle:context;
 };
 
-export const SignExpiredOrder = ({ ca,F_TxForwarder, F_Order }: IProps) => {
+export const SignExpiredOrder = ({ contextTitle, ca,F_TxForwarder, F_Order }: IProps) => {
     const [isLoading, setIsLoading] = useState({
         orderId: false,
         expiredOrderSign: false,
@@ -52,24 +53,8 @@ export const SignExpiredOrder = ({ ca,F_TxForwarder, F_Order }: IProps) => {
             setIsLoading((prev) => {
                 return { ...prev, expiredOrderSign: true };
             });
-            if (!F_TxForwarder || !F_Order || !UserWallet) return;
-            const nonce = await F_TxForwarder.getNonce(UserWallet.address);
-            const data = await F_Order.expiredOrder(Number(OrderId));
-            console.log(ca.order);
-            
-            const req = forwardRequest(
-                UserWallet.address,
-                ca.order,
-                nonce.toString(),
-                data
-            );
-            const sign = await F_TxForwarder.signMetaTx(req, UserWallet);
-            const json = {
-                "function selector":
-                    data.slice(0, 10) + ` (${lodisSelector[data.slice(0, 10)]})`,
-                req: req,
-                signature: sign,
-            };
+            if (!UserWallet) return;
+            const json = await Sign2770ExpiredOrder(contextTitle,UserWallet,OrderId)
             setJsonObject(json);
         } catch (error) {
             alert("ERROR onClick expiredOrder : " + error);

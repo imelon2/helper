@@ -2,20 +2,20 @@ import { Wallet, ethers } from "ethers";
 import { useCallback, useState } from "react";
 import JSONPretty from "react-json-pretty";
 import Loading from "../../components/Loading/Loading";
-import { SearchOrderById } from "../../modules/OrderModules";
+import { SearchOrderById, Sign2770DelayPickUp } from "../../modules/OrderModules";
 import { TxForwarder } from "utils/lodis/libs/TxForwarder";
 import { Order } from "utils/lodis/libs/Order";
-import { forwardRequest } from "utils/lodis/libs/Signature";
-import { lodisSelector } from "utils/lodis/config";
+import { context } from "utils/lodis/config";
 import { checkPrivateKeyLength } from "utils";
 
 
 type IProps = {
+  contextTitle:context;
   F_TxForwarder: TxForwarder;
   F_Order: Order;
   ca:any
 };
-export const SignDelayPickUp = ({ ca, F_TxForwarder, F_Order }: IProps) => {
+export const SignDelayPickUp = ({ contextTitle, ca, F_TxForwarder, F_Order }: IProps) => {
   const [isLoading, setIsLoading] = useState({
     orderId: false,
     delayPickUpSign: false,
@@ -52,22 +52,8 @@ export const SignDelayPickUp = ({ ca, F_TxForwarder, F_Order }: IProps) => {
       setIsLoading((prev) => {
         return { ...prev, delayPickUpSign: true };
       });
-      if (!F_TxForwarder || !F_Order || !UserWallet) return;
-      const nonce = await F_TxForwarder.getNonce(UserWallet.address);
-      const data = await F_Order.delayPickUp(Number(OrderId));
-      const req = forwardRequest(
-        UserWallet.address,
-        ca.order,
-        nonce.toString(),
-        data
-      );
-      const sign = await F_TxForwarder.signMetaTx(req, UserWallet);
-      const json = {
-        "function selector":
-          data.slice(0, 10) + ` (${lodisSelector[data.slice(0, 10)]})`,
-        req: req,
-        signature: sign,
-      };
+      if (!UserWallet) return;
+      const json = await Sign2770DelayPickUp(contextTitle,UserWallet,OrderId)
       setJsonObject(json);
     } catch (error) {
       alert("ERROR onClick delayPickUpSign : " + error);
