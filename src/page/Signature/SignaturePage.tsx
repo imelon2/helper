@@ -26,15 +26,15 @@ function SignaturePage() {
   const [Provider, setProvider] = useState({ L1: "", L2: "" });
   const [F_Order, setF_Order] = useState<Order>();
   const [F_TxForwarder, setF_TxForwarder] = useState<TxForwarder>();
-
+  const [ca,setCA] = useState<any>()
   useEffect(() => {
     const _context = checkContextType(context!) ? (context as context) : "dev";
     const provider = initializeProvider(_context);
-    const ca = initializeCA(_context);
+    const _ca = initializeCA(_context);
     const _provider = new ethers.providers.JsonRpcProvider(provider.L2);
-    const _order = new Order(ca.order, _provider);
-    const _txForwarder = new TxForwarder(ca.forwarder, _provider);
-
+    const _order = new Order(_ca.order, _provider);
+    const _txForwarder = new TxForwarder(_ca.forwarder, _provider);
+    setCA(_ca)
     setProvider(provider);
     setContextTitle(_context);
     setF_Order(_order);
@@ -45,8 +45,8 @@ function SignaturePage() {
     <div className="container">
       <h1>⚙️ Signature Function</h1>
       <ContextHeader contextTitle={contextTitle} Provider={Provider} />
-      <SignDelayPickUp F_Order={F_Order!} F_TxForwarder={F_TxForwarder!}/>
-      <SignExpiredOrder F_Order={F_Order!} F_TxForwarder={F_TxForwarder!}/>
+      <SignDelayPickUp ca={ca} F_Order={F_Order!} F_TxForwarder={F_TxForwarder!}/>
+      <SignExpiredOrder ca={ca} F_Order={F_Order!} F_TxForwarder={F_TxForwarder!}/>
     </div>
   );
 }

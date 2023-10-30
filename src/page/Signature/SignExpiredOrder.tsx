@@ -12,9 +12,10 @@ import { TxForwarder } from "utils/lodis/libs/TxForwarder";
 type IProps = {
     F_TxForwarder: TxForwarder;
     F_Order: Order;
+    ca:any
 };
 
-export const SignExpiredOrder = ({ F_TxForwarder, F_Order }: IProps) => {
+export const SignExpiredOrder = ({ ca,F_TxForwarder, F_Order }: IProps) => {
     const [isLoading, setIsLoading] = useState({
         orderId: false,
         expiredOrderSign: false,
@@ -54,9 +55,11 @@ export const SignExpiredOrder = ({ F_TxForwarder, F_Order }: IProps) => {
             if (!F_TxForwarder || !F_Order || !UserWallet) return;
             const nonce = await F_TxForwarder.getNonce(UserWallet.address);
             const data = await F_Order.expiredOrder(Number(OrderId));
+            console.log(ca.order);
+            
             const req = forwardRequest(
                 UserWallet.address,
-                F_TxForwarder.CA,
+                ca.order,
                 nonce.toString(),
                 data
             );
@@ -76,7 +79,7 @@ export const SignExpiredOrder = ({ F_TxForwarder, F_Order }: IProps) => {
             });
         }
     };
-    
+
     const onChangeOrderId = useCallback(
         (data: any) => {
             const _id = data.target.value.toString();

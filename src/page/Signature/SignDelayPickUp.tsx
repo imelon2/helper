@@ -13,8 +13,9 @@ import { checkPrivateKeyLength } from "utils";
 type IProps = {
   F_TxForwarder: TxForwarder;
   F_Order: Order;
+  ca:any
 };
-export const SignDelayPickUp = ({ F_TxForwarder, F_Order }: IProps) => {
+export const SignDelayPickUp = ({ ca, F_TxForwarder, F_Order }: IProps) => {
   const [isLoading, setIsLoading] = useState({
     orderId: false,
     delayPickUpSign: false,
@@ -56,7 +57,7 @@ export const SignDelayPickUp = ({ F_TxForwarder, F_Order }: IProps) => {
       const data = await F_Order.delayPickUp(Number(OrderId));
       const req = forwardRequest(
         UserWallet.address,
-        F_TxForwarder.CA,
+        ca.order,
         nonce.toString(),
         data
       );
