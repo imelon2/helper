@@ -10,3 +10,16 @@
     font-size: 20px;
     font-weight: 500;
 }
+
+.latestOrderId {
+    margin-top: 20px;
+}
+
+.latestOrderId-button-wrapper {
+    display: inline-flex;
+    align-items: center;
+}
+
+.latestOrderId-button {
+    margin-inline-start: 3px;
+}

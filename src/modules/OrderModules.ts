@@ -10,6 +10,10 @@ import { _praseOrderdata } from "../utils/prase";
 import { Wallet, ethers } from "ethers";
 import { forwardRequest } from "utils/lodis/libs/Signature";
 
+export const GetLatestOrderId = async (order: Order) => {
+    return await order.getOrderId()
+}
+
 export const SearchOrderById = async (id: number, order: Order) => {
     try {
         const OrderData = await order.getOrder(id)

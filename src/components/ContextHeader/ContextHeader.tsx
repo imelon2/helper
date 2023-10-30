@@ -1,4 +1,7 @@
+import { useEffect, useState } from "react";
 import "./ContextHeader.css";
+import Loading from "components/Loading/Loading";
+import { Order } from "utils/lodis/libs/Order";
 
 type IProps = {
   contextTitle: string;
@@ -6,14 +9,38 @@ type IProps = {
     L1: string;
     L2: string;
   };
+  F_Order:Order;
 };
-const ContextHeader = ({ contextTitle, Provider }: IProps) => {
+
+const ContextHeader = ({contextTitle, Provider,F_Order }: IProps) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [latestOrderId,setLatestOrderId] = useState<string>("-")
+
+  useEffect(() => {
+    onClickRefersh()
+  },[])
+  
+  const onClickRefersh = async() => {
+    try {
+      setIsLoading(true)
+      const _latestOrderId = await F_Order.getOrderId()
+      setLatestOrderId(_latestOrderId.toString())
+    } catch (error) {
+      
+    } finally {
+      setIsLoading(false)
+    }
+  }
   return (
     <div>
       <div className="titleText">📝 Lodis 환경 정보 : {contextTitle}</div>
       <div className="Provider">Provider</div>
       <li className="L1">L1 : {Provider.L1}</li>
       <li className="L2">L2 : {Provider.L2}</li>
+        <div className="latestOrderId-button-wrapper">
+          <div className="titleText latestOrderId">Latest Order Id {latestOrderId}</div>
+          <button className="latestOrderId-button" onClick={onClickRefersh}> {isLoading ? <Loading /> : "새로고침"}</button>
+        </div>
     </div>
   );
 };

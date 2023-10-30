@@ -104,7 +104,7 @@ function OrderHandlePage() {
 
     return (
         <div className='container'>
-            <ContextHeader contextTitle={contextTitle} Provider={Provider}/>
+            <ContextHeader F_Order={order!} contextTitle={contextTitle} Provider={Provider}/>
             <div className="wrapper">
                 <div className='orderTitle'><div className="icon">📌</div>주문 완료</div>
                 <div className='functionName'>(completeOrderWithOutSig)</div>
