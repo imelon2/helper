@@ -8,7 +8,6 @@ import Loading from "../../components/Loading/Loading"
 import { checkContextType, checkPrivateKeyLength } from "../../utils/check"
 import { Wallet, ethers } from "ethers"
 import JSONPretty from 'react-json-pretty';
-import { _praseOrderdata } from "../../utils/prase"
 import { SearchOrderById } from "../../modules/OrderModules"
 import { Order } from "../../utils/lodis/libs/Order"
 

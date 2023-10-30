@@ -18,6 +18,7 @@ import { forwardRequest } from "../../utils/lodis/libs/Signature";
 import { Order } from "../../utils/lodis/libs/Order";
 import { TxForwarder } from "../../utils/lodis/libs/TxForwarder";
 import { SignDelayPickUp } from "./SignDelayPickUp";
+import { SignExpiredOrder } from "./SignExpiredOrder";
 
 function SignaturePage() {
   const { context } = useParams();
@@ -45,12 +46,7 @@ function SignaturePage() {
       <h1>⚙️ Signature Function</h1>
       <ContextHeader contextTitle={contextTitle} Provider={Provider} />
       <SignDelayPickUp F_Order={F_Order!} F_TxForwarder={F_TxForwarder!}/>
-      <div className="wrapper">
-        <div className="text20">
-          <div className="icon">📌</div>배송 지연
-        </div>
-        <div className="functionName">(expiredOrder)</div>
-      </div>
+      <SignExpiredOrder F_Order={F_Order!} F_TxForwarder={F_TxForwarder!}/>
     </div>
   );
 }

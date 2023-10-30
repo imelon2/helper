@@ -5,8 +5,15 @@ import "./Home.css"
 function Home() {
     return (
         <div className="container">
+            {/* <div className='wrapper'>
+                <div className="titleText title">KEY</div>
+                <li><Link to={"/key/dev"}>DEV</Link></li>
+                <li><Link to={"/key/test"}>TEST</Link></li>
+                <li><Link to={"/key/stag"}>STAG</Link></li>
+                <li><Link to={"/key/beta"}>BETA</Link></li>
+            </div> */}
             <div className='wrapper'>
-                <div className="titleText title">Order Contract</div>
+                <div className="titleText title">Order Contract (#deprecated)</div>
                 <li><Link to={"/order/dev"}>DEV</Link></li>
                 <li><Link to={"/order/test"}>TEST</Link></li>
                 <li><Link to={"/order/stag"}>STAG</Link></li>
