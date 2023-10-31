@@ -1,52 +1,40 @@
-    .order {
-        position: relative;
-    }
+.orderTitle {
+    color: #000000;
+    font-size: 20px;
+    font-weight: 700;
+}
 
-    .Provider {
-        margin-top: 10px;
-        padding-inline-start: 5px;
-        margin-bottom: 10px;
-        font-size: 20px;
-        font-weight: 500;
-    }
+.functionName {
+    color: #9b9b9b;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 24px;
+    padding-inline-start: 10px;
+}
 
-    .orderTitle {
-        color: #000000;
-        font-size: 20px;
-        font-weight: 700;
-    }
+.address {
+    color:#9b9b9b
+}
 
-    .functionName {
-        color: #9b9b9b;
-        font-family: Inter, sans-serif;
-        font-size: 14px;
-        font-weight: 700;
-        line-height: 24px;
-        padding-inline-start: 10px;
-    }
+.OrderId.button {
+    margin-inline-start: 3px;
+}
 
-    .address {
-        color:#9b9b9b
-    }
+.sendTx.button {
+    margin-inline-start: 3px;
+}
 
-    .OrderId.button {
-        margin-inline-start: 3px;
-    }
+.jsonForm {
+    margin-inline-start: 15px;
+    padding: 10px;
+}
 
-    .sendTx.button {
-        margin-inline-start: 3px;
-    }
-
-    .jsonForm {
-        margin-inline-start: 15px;
-        padding: 10px;
-    }
-
-    .OrderId.jsonForm {
-        margin-inline-start: 15px;
-        margin-top: 25px;
-        background-color: #E0DCDB;
-        overflow: overlay;
-        height: 260px;
-        width: 800px;
-    } 
+.OrderId.jsonForm {
+    margin-inline-start: 15px;
+    margin-top: 25px;
+    background-color: #E0DCDB;
+    overflow: overlay;
+    height: 260px;
+    width: 800px;
+} 

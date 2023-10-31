@@ -23,7 +23,8 @@ const ContextHeader = ({contextTitle, Provider,F_Order }: IProps) => {
   const onClickRefersh = async() => {
     try {
       setIsLoading(true)
-      const _latestOrderId = await F_Order.getOrderId()
+      let _latestOrderId = await F_Order.getOrderId()
+      _latestOrderId --;
       setLatestOrderId(_latestOrderId.toString())
     } catch (error) {
       
@@ -34,11 +35,14 @@ const ContextHeader = ({contextTitle, Provider,F_Order }: IProps) => {
   return (
     <div>
       <div className="titleText">📝 Lodis 환경 정보 : {contextTitle}</div>
-      <div className="Provider">Provider</div>
+      <div className="provider">Provider</div>
       <li className="L1">L1 : {Provider.L1}</li>
       <li className="L2">L2 : {Provider.L2}</li>
         <div className="latestOrderId-button-wrapper">
-          <div className="titleText latestOrderId">Latest Order Id {latestOrderId}</div>
+          <div className="titleText latestOrderId">Latest Order Id 
+          <span className="latestOrderId-Text">{latestOrderId}</span>
+          <span className="message">가장 마지막에 생성된 Order Id</span>
+          </div>
           <button className="latestOrderId-button" onClick={onClickRefersh}> {isLoading ? <Loading /> : "새로고침"}</button>
         </div>
     </div>

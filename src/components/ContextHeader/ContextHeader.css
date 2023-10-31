@@ -3,7 +3,7 @@
     margin-top: 45px;
 }
 
-.Provider {
+.provider {
     margin-top: 10px;
     padding-inline-start: 5px;
     margin-bottom: 10px;
@@ -12,14 +12,29 @@
 }
 
 .latestOrderId {
-    margin-top: 20px;
+    padding-top: 15px;
+    padding-bottom: 11px;
+}
+
+.latestOrderId-Text {
+    font-size: 30px;
+    font-weight: 300;
+    padding-inline-start: 5px;
 }
 
 .latestOrderId-button-wrapper {
     display: inline-flex;
     align-items: center;
+    margin-top: 10px;
 }
 
 .latestOrderId-button {
-    margin-inline-start: 3px;
+    margin-inline-start: 7px;
+}
+
+.message {
+    display: block;
+    color: #9b9b9b;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
 }

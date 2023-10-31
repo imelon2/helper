@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom"
 import React, { useCallback, useEffect, useState } from 'react'
-import '../../styles/GlobalStyle.css'
 import "./OrderHandlePage.css"
 import ContextHeader from "../../components/ContextHeader/ContextHeader"
 import { initializeProvider, context, initializeCA } from "../../utils/lodis/config"
