@@ -13,7 +13,7 @@ function Home() {
                 <li><Link to={"/key/beta"}>BETA</Link></li>
             </div> */}
             <div className='wrapper'>
-                <div className="titleText title">Order Contract (#deprecated)</div>
+                <div className="titleText title">Order Contract Researcher</div>
                 <li><Link to={"/order/dev"}>DEV</Link></li>
                 <li><Link to={"/order/test"}>TEST</Link></li>
                 <li><Link to={"/order/stag"}>STAG</Link></li>

@@ -159,20 +159,18 @@ function OrderHandlePage() {
                             <span>🔎 Search Lastest Order List</span>
                         </div>
                         <div className="latest-block-wrapper">
-                            <span className="block-range" >
-                                <input onChange={onChangeSearchFromBlockNumber} value={searchFromBlockNumber} style={{ width: 100 }} />
-                                ~
-                                <input onChange={onChangeSearchToBlockNumber} value={searchToBlockNumber} style={{ width: 100 }} /> 개 조회
-                                <span className="text12"> (MAX 43200)</span></span>
-                            <div>
-                                <button className="OrderId button" onClick={onClickSearchOrderDataList}>
-                                    {isLoading.latestOrder ? <Loading /> : "검색"}
-                                </button>
+                            <div className="block-range" >
+                                <span>{"Block Number "}</span>
+                                <input onChange={onChangeSearchFromBlockNumber} value={searchFromBlockNumber} style={{ width: 90 }} />
+                                <span>{"부터 "}</span>
                             </div>
-                            <div>
-                                <span className="text12 latest-block">Latest Block : {latestBlock}</span>
-                                <button onClick={onClickRefreshLatestBlock} className="latest-block-button"> {isLoading.latestBlock ? <Loading /> : <AiOutlineHistory className="refrash-button" />}</button>
-                            </div>
+                            <input onChange={onChangeSearchToBlockNumber} value={searchToBlockNumber} style={{ width: 70 }} />
+                            <span> 개 Block                                 <span className="text12 gray">  (MAX 43200)</span></span>
+                            <button className="OrderId button" onClick={onClickSearchOrderDataList}>
+                                {isLoading.latestOrder ? <Loading /> : "검색"}
+                            </button>
+                            <span className="text12 latest-block">Latest Block : {latestBlock}</span>
+                            <button onClick={onClickRefreshLatestBlock} className="latest-block-button"> {isLoading.latestBlock ? <Loading /> : <AiOutlineHistory className="refrash-button" />}</button>
                         </div>
                     </div>
                 </div>
