@@ -1,3 +1,5 @@
+export const blockOf24H = 43200;
+
 export function convertDate(milliSecond:number|string) {
     const days = ['일', '월', '화', '수', '목', '금', '토'];
     const data = new Date(milliSecond);  //Date객체 생성

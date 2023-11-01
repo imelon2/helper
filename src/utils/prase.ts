@@ -46,3 +46,18 @@ export const _praseOrderdata = (_orderData:any[]):IOrderData => {
         carrierFee:_orderData[18].toString(),
     }
 }
+export type IOrderEventData = {
+    action:string|undefined;
+    orderId:string;
+    blockNumber:number;
+    txHash:string;
+}
+export const _parseOrderEvent = (event:ethers.Event):IOrderEventData => {
+    return {
+        action:event.event,
+        orderId:event.args!.orderId.toString(),
+        blockNumber:event.blockNumber,
+        txHash:event.transactionHash
+    }
+
+}

@@ -14,20 +14,45 @@
 }
 
 .address {
-    color:#9b9b9b
+    color: #9b9b9b
 }
 
 .OrderId.button {
     margin-inline-start: 3px;
 }
 
-.sendTx.button {
-    margin-inline-start: 3px;
+.refrash-button {
+    display: flex;
+    align-items: center;
+}
+
+.latest-block-wrapper {
+    margin-top: 5px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.latest-block {
+    margin-inline-start: 5px;
+}
+
+.latest-block-button {
+    margin-inline-start: 7px;
+    color: black;
+}
+
+.block-range {
+    color: #4e4d4d;
+    font-size: 16px;
+    font-weight: 500;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .jsonForm {
     margin-inline-start: 15px;
     padding: 10px;
+    margin-bottom: 100px;
 }
 
 .OrderId.jsonForm {
@@ -35,6 +60,38 @@
     margin-top: 25px;
     background-color: #E0DCDB;
     overflow: overlay;
-    height: 260px;
+    height: 400px;
     width: 800px;
-} 
+}
+
+.order-list-header {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.order-list-ul {
+    color: #0e0e0e;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+}
+.order-list-header.data {
+    border-bottom: 1px solid #9b9b9b;
+}
+.order-list-ul.action {
+    width: 100px;
+}
+.order-list-ul.orderId {
+    width: 70px;
+}
+.order-list-ul.blockNumber {
+    width: 150px;
+}
+.order-list-ul.txHash {
+    /* width: 300px; */
+}
+
+.order-list-ul.data {
+    font-size: 12px;
+    border-right: none;
+}

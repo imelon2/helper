@@ -19,7 +19,7 @@ import { GetLatestOrderId } from "modules/OrderModules";
 function SignaturePage() {
   const { context } = useParams();
   const [contextTitle, setContextTitle] = useState<context>("dev");
-  const [Provider, setProvider] = useState({ L1: "", L2: "" });
+  const [providerURL, setProviderURL] = useState({ L1: "", L2: "" })
   const [F_Order, setF_Order] = useState<Order>();
   const [F_TxForwarder, setF_TxForwarder] = useState<TxForwarder>();
   const [ca,setCA] = useState<any>()
@@ -33,7 +33,7 @@ function SignaturePage() {
     const _txForwarder = new TxForwarder(_ca.forwarder, _provider);
 
     setCA(_ca)
-    setProvider(provider);
+    setProviderURL(provider);
     setContextTitle(_context);
     setF_Order(_order);
     setF_TxForwarder(_txForwarder);
@@ -43,7 +43,7 @@ function SignaturePage() {
   return (
     <div className="container">
       <h1>⚙️ Signature Function</h1>
-      <ContextHeader F_Order={F_Order!} contextTitle={contextTitle} Provider={Provider} />
+      <ContextHeader F_Order={F_Order!} contextTitle={contextTitle} providerURL={providerURL} />
       <SignDelayPickUp contextTitle={contextTitle} ca={ca} F_Order={F_Order!} F_TxForwarder={F_TxForwarder!}/>
       <SignExpiredOrder contextTitle={contextTitle} ca={ca} F_Order={F_Order!} F_TxForwarder={F_TxForwarder!}/>
     </div>

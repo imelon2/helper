@@ -5,14 +5,14 @@ import { Order } from "utils/lodis/libs/Order";
 
 type IProps = {
   contextTitle: string;
-  Provider: {
+  providerURL: {
     L1: string;
     L2: string;
   };
   F_Order:Order;
 };
 
-const ContextHeader = ({contextTitle, Provider,F_Order }: IProps) => {
+const ContextHeader = ({contextTitle, providerURL,F_Order }: IProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const [latestOrderId,setLatestOrderId] = useState<string>("-")
 
@@ -36,8 +36,8 @@ const ContextHeader = ({contextTitle, Provider,F_Order }: IProps) => {
     <div>
       <div className="titleText">📝 Lodis 환경 정보 : {contextTitle}</div>
       <div className="provider">Provider</div>
-      <li className="L1">L1 : {Provider.L1}</li>
-      <li className="L2">L2 : {Provider.L2}</li>
+      <li className="L1">L1 : {providerURL.L1}</li>
+      <li className="L2">L2 : {providerURL.L2}</li>
         <div className="latestOrderId-button-wrapper">
           <div className="titleText latestOrderId">Latest Order Id 
           <span className="latestOrderId-Text">{latestOrderId}</span>

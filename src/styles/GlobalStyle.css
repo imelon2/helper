@@ -13,9 +13,18 @@
     font-size: x-large;
 }
 
+.componentTitle {
+    font-size: 18px;
+    font-weight: 600;
+}
+
 .text20 {
     font-size: 20px;
     font-weight: 600;
+}
+
+.text18 {
+    font-size: 18px;
 }
 
 .text16 {
@@ -54,6 +63,6 @@ input {
 }
 
 .inputWrapper {
-    margin-top: 6px;
+    margin-top: 15px;
     margin-left: 20px;
 }
