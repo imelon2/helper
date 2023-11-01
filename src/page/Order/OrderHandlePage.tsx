@@ -11,6 +11,7 @@ import { GetLatestOrderByEvent, SearchOrderById } from "../../modules/OrderModul
 import { Order } from "../../utils/lodis/libs/Order"
 import { AiOutlineHistory } from "react-icons/ai";
 import { IOrderEventData } from "utils/prase"
+import { convertDate } from "utils/time"
 
 type IMoniterState = "Object" | "UI"
 function OrderHandlePage() {
@@ -184,6 +185,7 @@ function OrderHandlePage() {
                             <div className="order-list-ul action">Action</div>
                             <div className="order-list-ul orderId">Order ID</div>
                             <div className="order-list-ul blockNumber">Block Number</div>
+                            <div className="order-list-ul timeStamp">TimeStamp</div>
                             <div className="order-list-ul txHash">TX Hash</div>
                         </div>
                         {showOrderList?.map((data, i) => {
@@ -192,6 +194,7 @@ function OrderHandlePage() {
                                     <div className="order-list-ul data action">{data.action}</div>
                                     <div className="order-list-ul data orderId">{data.orderId}</div>
                                     <div className="order-list-ul data blockNumber">{data.blockNumber}</div>
+                                    <div className="order-list-ul data timeStamp">{convertDate(data.timestamp)}</div>
                                     <div onClick={() => onClickTxHash(data.txHash)} className="order-list-ul data txHash">{data.txHash}</div>
                                 </div>
                             )

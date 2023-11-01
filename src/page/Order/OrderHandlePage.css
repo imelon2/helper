@@ -57,7 +57,7 @@
     background-color: #E0DCDB;
     overflow: overlay;
     height: 400px;
-    width: 800px;
+    width: 1000px;
 }
 
 .order-list-header {
@@ -83,9 +83,11 @@
 .order-list-ul.blockNumber {
     width: 150px;
 }
-.order-list-ul.txHash {
-    /* width: 300px; */
+
+.order-list-ul.timeStamp {
+    width: 180px;
 }
+
 
 .order-list-ul.data {
     font-size: 12px;

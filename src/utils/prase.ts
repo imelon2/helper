@@ -51,13 +51,16 @@ export type IOrderEventData = {
     orderId:string;
     blockNumber:number;
     txHash:string;
+    timestamp:string|number;
 }
-export const _parseOrderEvent = (event:ethers.Event):IOrderEventData => {
+export const _parseOrderEvent = async(event:ethers.Event,provider:ethers.providers.JsonRpcProvider):Promise<IOrderEventData> => {
+    const timestamp = (await provider.getBlock(event.blockNumber)).timestamp
     return {
         action:event.event,
         orderId:event.args!.orderId.toString(),
         blockNumber:event.blockNumber,
-        txHash:event.transactionHash
+        txHash:event.transactionHash,
+        timestamp : timestamp * 1000
     }
 
 }

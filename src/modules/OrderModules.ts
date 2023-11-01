@@ -87,7 +87,10 @@ export const GetLatestOrderByEvent = async( _context: context,latestBlock:string
     const _provider = new ethers.providers.JsonRpcProvider(provider.L2);
     const OrderContract = new Contract(_ca.order,_OrderJson.abi,_provider)
     const result = await OrderContract.queryFilter("*",Number(latestBlock) - Number(range),'latest')
-    const _result = result.map((data) => _parseOrderEvent(data))
+    const _result = await Promise.all(
+        result.map(async(data) => await _parseOrderEvent(data,_provider))
+    )
+
     return _result.sort((data1,data2) => {
         return data2.blockNumber - data1.blockNumber
     })
